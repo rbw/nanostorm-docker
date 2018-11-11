@@ -18,7 +18,7 @@ mode: production
 # ----------
 
 # Unix socket path
-unix_socket: /tmp/nanostorm/socket.sock
+unix_socket: /app/nanostorm.sock
 
 # Number of processes to fork, use 0 for one per core.
 processes: 0
