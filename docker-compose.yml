@@ -1,0 +1,27 @@
+app_server:
+  build: .
+  volumes:
+      - /tmp/nanostorm
+      - ~/.nanostorm/settings/app:/app/settings
+      - ~/.nanostorm/logs:/app/logs
+  links:
+    - nano_node
+http_proxy:
+  image: nginx
+  environment:
+  - NGINX_HOST=domain.com
+  - NGINX_PORT=80
+  volumes:
+    - ./examples/nginx.conf:/etc/nginx/nginx.conf:rw
+    - ~/.nanostorm/settings/nginx.conf:/etc/nginx/nginx.conf
+  volumes_from:
+    - app_server
+  ports:
+   - "80:80"
+nano_node:
+  image: nanocurrency/nano
+  ports:
+    - "7075:7075"
+    - "7076:7076"
+  volumes:
+    - ~/.nanostorm/node:/root/RaiBlocks
