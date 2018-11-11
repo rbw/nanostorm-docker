@@ -13,18 +13,20 @@ RUN apk add --no-cache gcc python3-dev musl-dev autoconf automake libtool make
 
 EXPOSE 5000
 
-RUN mkdir -p /app/logs /tmp/libb2
+RUN mkdir -p /tmp/libb2 /tmp/nanostorm
 
 RUN git clone https://github.com/BLAKE2/libb2 /tmp/libb2
 
 WORKDIR /tmp/libb2
 RUN ./autogen.sh && ./configure && make install
 
+RUN mkdir -p /app/logs
+
 WORKDIR /app
 
-COPY ./nanostorm /app/nanostorm
-COPY requirements.txt /app/requirements.txt
-COPY ./examples/settings /app/settings
+COPY ./conf/nanostorm/settings/ /app/settings/
+COPY ./nanostorm/nanostorm/ /app/nanostorm/
+COPY ./nanostorm/requirements.txt /app/requirements.txt
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 

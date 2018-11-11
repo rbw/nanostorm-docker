@@ -2,7 +2,7 @@ app_server:
   build: .
   volumes:
       - /tmp/nanostorm
-      - ~/.nanostorm/settings/app:/app/settings
+      - ~/.nanostorm/settings/nanostorm:/app/settings
       - ~/.nanostorm/logs:/app/logs
   links:
     - nano_node
@@ -12,8 +12,7 @@ http_proxy:
   - NGINX_HOST=domain.com
   - NGINX_PORT=80
   volumes:
-    - ./examples/nginx.conf:/etc/nginx/nginx.conf:rw
-    - ~/.nanostorm/settings/nginx.conf:/etc/nginx/nginx.conf
+    - ./conf/nginx.conf:/etc/nginx/nginx.conf:rw
   volumes_from:
     - app_server
   ports:

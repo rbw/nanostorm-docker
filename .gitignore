@@ -2,8 +2,6 @@
 *.db
 *~
 
-settings/
-
 html/
 htmlcov/
 coverage/
