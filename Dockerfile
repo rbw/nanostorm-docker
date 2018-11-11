@@ -22,8 +22,7 @@ RUN ./autogen.sh && ./configure && make install
 
 RUN mkdir -p /app/logs
 
-COPY conf/nginx.conf /app/nginx.conf
-COPY conf/nanostorm/settings /app/settings/
+COPY settings /app/settings/
 COPY app/nanostorm /app/nanostorm/
 COPY app/requirements.txt /app/requirements.txt
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
