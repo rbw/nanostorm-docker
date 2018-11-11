@@ -22,12 +22,12 @@ RUN ./autogen.sh && ./configure && make install
 
 RUN mkdir -p /app/logs
 
-WORKDIR /app
-
-COPY ./conf/nanostorm/settings/ /app/settings/
-COPY ./nanostorm/nanostorm/ /app/nanostorm/
-COPY ./nanostorm/requirements.txt /app/requirements.txt
+COPY conf/nginx.conf /app/nginx.conf
+COPY conf/nanostorm/settings /app/settings/
+COPY app/nanostorm /app/nanostorm/
+COPY app/requirements.txt /app/requirements.txt
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
+WORKDIR /app
 
 ENTRYPOINT ["python3", "-m", "nanostorm"]

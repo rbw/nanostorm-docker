@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-cd nanostorm
+cd app 
 git checkout master && git pull
 cd ..
-git add nanostorm
+git add app 
 git commit -m "updating nanostorm to latest"
+
