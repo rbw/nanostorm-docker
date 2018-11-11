@@ -1,0 +1,36 @@
+# Nano RPC proxy configuration
+enabled: true
+node_uri: http://[::1]:7076
+proxy_path: /rpc
+public_actions:
+    - validate_account_number
+    - available_supply
+    - process
+    - chain
+    - representatives
+    - frontiers
+    - frontier_count
+    - republish
+    - peers
+    - version
+    - block
+    - block_account
+    - blocks_info
+    - block_count
+    - block_count_type
+    - blocks
+    - block_hash
+    - pending_exists
+    - delegators
+    - delegators_count
+    - account_balance
+    - account_block_count
+    - account_weight
+    - account_info
+    - account_history
+    - account_representative
+    - accounts_balances
+    - accounts_pending
+    - accounts_frontiers
+protected_actions:
+    - test

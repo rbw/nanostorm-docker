@@ -1,0 +1,17 @@
+outputs:
+  file:
+    # file.enabled defaults to true in `production` mode
+    # enabled: true
+    dir: ./logs
+    rotate_maxbytes: 10e7
+    rotate_count: 10
+  console:
+    # console.enabled defaults to true in `development` mode
+    # enabled: true
+enabled_loggers:
+  - tornado.application
+  - tornado.general
+  # - tornado.access
+
+# Defaults to true in `development` mode
+# debug: true

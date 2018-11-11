@@ -1,0 +1,31 @@
+# There are two modes.
+#
+# - development:
+#   * Enables a single-process built-in HTTP server (address customizable in `dev_address` directive)
+#   * Enables auto-reload of project files
+#   * Sets logging to `DEBUG` by default
+#   * Sends logs to console by default
+#
+# - production:
+#   * Multiprocess (customizable in `processes` directive)
+#   * Binds to a unix socket specified in `unix_socket`, for use with a proxy (such as Nginx).
+#   * Sets logging to `INFO` by default
+#   * Sends logs to file by default
+
+mode: production
+
+# production
+# ----------
+
+# Unix socket path
+unix_socket: /app/socket.sock
+
+# Number of processes to fork, use 0 for one per core.
+processes: 0
+
+
+# development
+# -----------
+
+# Single-process HTTP server bind address
+dev_address: 0.0.0.0:5000
