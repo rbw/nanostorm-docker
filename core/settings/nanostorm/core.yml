@@ -12,23 +12,7 @@
 #   * Sets logging to `INFO` by default
 #   * Sends logs to file by default
 
-mode: production
+mode: development
 
-# production
-# ----------
-
-# Unix socket path
-unix_socket: /app/run/nanostorm.sock
-
-# Socket file mode bits
-socket_mode: 0666
-
-# Number of processes to fork, use 0 for one per core.
-processes: 0
-
-
-# development
-# -----------
-
-# Single-process HTTP server bind address
-dev_address: 0.0.0.0:5000
+address: 0.0.0.0
+port: 8080
