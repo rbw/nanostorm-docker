@@ -1,3 +1,5 @@
 [submodule "core/app"]
 	path = core/app
-	url = git@github.com:rbw/nanostorm
+	# url = git@github.com:rbw/nanostorm
+	url = https://github.com/rbw/nanostorm
+
