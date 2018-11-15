@@ -1,6 +1,7 @@
 # Nano RPC proxy configuration
 enabled: true
-node_uri: http://[::1]:7076
+nodes:
+  - http://[::1]:7076
 proxy_path: /rpc
 public_actions:
     - validate_account_number
