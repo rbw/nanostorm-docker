@@ -24,7 +24,7 @@ else
     echo "listen ${USE_LISTEN_PORT};" >> ${PROXY_FILE}
 fi
 
-echo "upstream nanostorm {" >> ${UPSTREAM_FILE}
+echo "upstream nanostorm {" > ${UPSTREAM_FILE}
 
 rpc_proxies=${NANOSTORM_SERVERS:-"localhost:15001"}
 for proxy in ${rpc_proxies//,/ }; do
